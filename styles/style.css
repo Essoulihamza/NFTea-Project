@@ -1,0 +1,28 @@
+*,
+*:focus {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    scroll-behavior: smooth;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+:root {
+    --primaryColor: #4851F1;
+    --darkColor: #181F5C;
+    --secondairColor: #3C4EE8;
+    --textColor: white;
+    --pFont: 'Sono';
+    --hFont: 'Orbitron';
+    --pWidth: 400;
+    --hWidth: 500;   
+}
+#home-body {
+    aspect-ratio: 1600/900;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../layer.svg);
+}
