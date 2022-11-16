@@ -17,12 +17,50 @@
     --textColor: white;
     --pFont: 'Sono';
     --hFont: 'Orbitron';
-    --pWidth: 400;
-    --hWidth: 500;   
+    --pWeight: 400;
+    --hWeight: 600;
+    --pSize: 18px;
+    --hSize: 20px;   
 }
 #home-body {
     aspect-ratio: 1600/900;
     width: 100%;
     height: 100vh;
     background-image: url(../layer.svg);
+}
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logo-ellipse {
+    background-image: url("https://nftcalendar.io/storage/uploads/events/2021/10/tkQNjNlQ4erfPQZ2FQyNn9wx2tInyNvZtBzj4jwZ.png");
+    /* filter: blur(2px); */
+    background-color: white; 
+    width: 26%;
+    height: 50%;
+    border-radius: 50%;
+    position: fixed;
+    top: -8vh;
+    z-index: -1;
+}
+
+.navbar ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30vw;
+}
+.navbar ul li {
+    font-family: var(--pFont);
+    font-weight: var(--hWeight);
+}
+.navbar ul li a {
+    color: var(--textColor);
+    font-size: var(--pSize);
+    font-family: var(--pFont);
+    margin: 2vw;
+    letter-spacing: 2px;
+}
+.navbar ul li a:hover {
+    color: var(--primaryColor);
 }
