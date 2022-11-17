@@ -6,9 +6,10 @@
     background-repeat: none;
     background-position: center;
     background-size: cover;
+    text-decoration: none;
   }
   
-  .navbar {
+  .nav-bar {
     background: #131313;
     height: 80px;
     display: flex;
@@ -19,8 +20,7 @@
     top: 0;
     z-index: 999;
   }
-  
-  .navbar__container {
+  .nav-bar__container {
     display: flex;
     justify-content: space-between;
     height: 80px;
@@ -32,7 +32,7 @@
     padding-left: 50px;
   }
   
-  #navbar__logo {
+  #nav-bar__logo {
     color: #fff;
     display: flex;
     align-items: center;
@@ -42,18 +42,18 @@
   }
 
   
-  .navbar__menu {
+  .nav-bar__menu {
     display: flex;
     align-items: center;
     list-style: none;
     text-align: center;
   }
   
-  .navbar__item {
+  .nav-bar__item {
     height: 80px;
   }
   
-  .navbar__links {
+  .nav-bar__links {
     color: #fff;
     display: flex;
     align-items: center;
@@ -63,7 +63,7 @@
     height: 100%;
   }
   
-  .navbar__btn {
+  .nav-bar__btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,13 +92,13 @@
     transition: all 0.3s ease;
   }
   
-  .navbar__links:hover {
+  .nav-bar__links:hover {
     color: #7B26D5;
     transition: all 0.3s ease;
   }
 
 @media screen and (max-width: 960px) {
-    .navbar__container {
+    .nav-bar__container {
         display: flex;
         justify-content: space-between;
         height: 80px;
@@ -108,11 +108,11 @@
         padding: 0;
     }
     
-    #navbar__logo {
+    #nav-bar__logo {
         padding-left: 25px;
     }
     
-    .navbar__menu {
+    .nav-bar__menu {
         display: grid;
         grid-template-columns: auto;
         margin:0;
@@ -125,7 +125,7 @@
         z-index: -1;
     }
 
-    .navbar__menu.active {
+    .nav-bar__menu.active {
         background: #131313;
         top: 100%;
         opacity: 1;
@@ -135,7 +135,7 @@
         font-size: 1.6rem;
     }
 
-    .navbar__toggle .bar {
+    .nav-bar__toggle .bar {
         width: 25px;
         height: 3px;
         margin: 5px auto;
@@ -143,18 +143,18 @@
         background: #fff;
     }
 
-    .navbar__item {
+    .nav-bar__item {
         width: 100%;
     }
 
-    .navbar__links {
+    .nav-bar__links {
         text-align: center;
         padding: 2rem;
         width: 100%;
         display: table;
     }
 
-    .navbar__btn {
+    .nav-bar__btn {
         padding-bottom: 2rem;
     }
 
@@ -167,7 +167,7 @@
         margin: 0;
     }
 
-    .navbar__toggle .bar {
+    .nav-bar__toggle .bar {
         display: block;
         cursor: pointer;
     }
@@ -220,18 +220,18 @@
 .main__content h1 {
     font-size: 3.5rem;
     color: #fff;
-
 }
 
 .text-highlight {
+    font-size: 4rem;
     color: #0071f3;
 }
 
 .main__content p {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-top: 8px;
-    font-weight: 100;
-    color: #dbdbdb
+    margin-right: 8px;
+    color: #dbdbdb;
 }
 
 .main__btn {
@@ -243,8 +243,6 @@
     margin-top: 2rem;
     cursor: pointer;
     position: relative;
-    transition: all 0.35s;
-    outline: none;
 }
 
 .main__btn a {
@@ -260,7 +258,7 @@
     text-decoration: none;
 }
 .main__btn:hover {
-    background: #0071f3;
+    background: #7B26D5;
 }
 
 .main__img--container {
@@ -516,8 +514,8 @@
 }
 .statistic .expensive {
     border-radius: 20px;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%),
-    url('/images/monkey-4.jpg');
+    /* background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%),
+    url('/images/monkey-4.jpg'); */
     background-size: 100% 100%;
     position: relative;
     color: #fff;
@@ -526,8 +524,8 @@
 }
 .statistic .cheap {
     border-radius: 20px;
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%),
-    url('/images/monkey-3.jpg');
+    /* background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%), */
+    /* url('/images/monkey-3.jpg'); */
     background-size: 100% 100%;
     position: relative;
     color: #fff;
@@ -536,23 +534,72 @@
 }
 .statistic .cheap h2,
 .statistic .expensive h2 {
-    position: absolute;
+    /* position: absolute; */
     top: 350px;
     left: 30px;
     font-size: 1.2rem;
 }
 .statistic .cheap p,
 .statistic .expensive p {
-    position: absolute;
+    /* position: absolute; */
     top: 380px;
     left: 30px;
     font-size: 0.8rem;
 }
+.collections {
+    width: 100%;
+    padding: 50px 50px;
+    background-color: #141414;
+    text-align: center;
+}
+.collections h2{
+    color: white;
+    margin-bottom: 5vh;
+}
+.add_your_collection {
+    background-color: #7B26D5;
+    width: 150px;
+    height: 50px;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+.add_your_collection a{
+    color: white;
+    text-decoration: none;
+} 
+.add_your_collection a:hover{
+    color: white;
+    text-decoration: none;
+} 
 
+.collections__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 2vw;
+    column-gap: 2vw;
+}
+.Explore {
+    background-color: #7B26D5;
+
+}
+.collection_info {
+    margin-bottom: 20px;
+}
+.collection_info p {
+    text-align: left;
+}
 
 .signin {
     color: white;
     margin-left: auto;
     margin-right: auto;
     padding: 0 30px;
+}
+
+.card {
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
 }

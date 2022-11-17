@@ -8,28 +8,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar__container">
-            <a href="/" id="navbar__logo">NFT<span style="color: #7B26D5;">ea</span></a>
-            <div class="navbar__toggle" id="mobile-menu">
+    <!-- nav-bar -->
+    <nav class="nav-bar">
+        <div class="nav-bar__container">
+            <a href="/" id="nav-bar__logo">NFT<span style="color: #7B26D5;">ea</span></a>
+            <div class="nav-bar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            <ul class="navbar__menu">
-                <li class="navbar__item">
-                    <a href="/index.html" class="navbar__links">Home</a>
+            <ul class="nav-bar__menu">
+                <li class="nav-bar__item">
+                    <a href="/index.html" class="nav-bar__links">Home</a>
                 </li>
-                <li class="navbar__item">
-                    <a href="/collections.html" class="navbar__links" style="color: #7B26D5;">Collections</a>
+                <li class="nav-bar__item">
+                    <a href="/collections.html" class="nav-bar__links" style="color: #7B26D5;">Collections</a>
                 </li>
-                <li class="navbar__item">
-                    <a href="/nfts.html" class="navbar__links">NFTs</a>
+                <li class="nav-bar__item">
+                    <a href="/nfts.html" class="nav-bar__links">NFTs</a>
                 </li>
-                <li class="navbar__btn">
+                <li class="nav-bar__btn">
                     <a href="/signup.html" class="button">Sign up</a>
                 </li>
             </ul>
@@ -46,47 +49,181 @@
             </div>
             <div class="statistic">
                 <div class="expensive">
-                    <h2>The most expensive</h2>
-                    <p>190000000$</p>
+                    <div class="card collection" style="width: 18rem;">
+                        <img src="./images/monkey-2.jpg" class="card-img-top" alt="NFT collection">
+                        <div class="card-body">
+                            <div class="collection_info">
+                                <div class="collection_name">
+                                    <h5 class="card-title collection-name">Hotgamme</h5>
+                                </div>
+                                <div class="collection_author">
+                                    <p class="card-text "><span style="font-weight:600;">artist name : </span>ABDELALI</p>
+                                </div>
+                                <div class="collection_items_count">
+                                    <p class="card-text "><span style="font-weight:600;">Items :  </span><span style="color: green;">23 NFT</span> </p>
+                                </div>
+                                <div class="collection_price">
+                                    <p class="card-text "><span style="font-weight:bold;">Total Price : </span><span style="color: green;">87ETH</span></p>
+                                </div>
+                            </div>
+                          <a href="#" class="btn btn-primary Explore">Explore</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="cheap">
-                    <h2>The cheapest</h2>
-                    <p>70000$</p>
+                    <div class="card collection" style="width: 18rem;">
+                        <img src="./images/monkey-2.jpg" class="card-img-top" alt="NFT collection">
+                        <div class="card-body">
+                            <div class="collection_info">
+                                <div class="collection_name">
+                                    <h5 class="card-title collection-name">Hotgamme</h5>
+                                </div>
+                                <div class="collection_author">
+                                    <p class="card-text "><span style="font-weight:600;">artist name : </span>ABDELALI</p>
+                                </div>
+                                <div class="collection_items_count">
+                                    <p class="card-text "><span style="font-weight:600;">Items :  </span><span style="color: green;">23 NFT</span> </p>
+                                </div>
+                                <div class="collection_price">
+                                    <p class="card-text "><span style="font-weight:bold;">Total Price : </span><span style="color: green;">87ETH</span></p>
+                                </div>
+                            </div>
+                          <a href="#" class="btn btn-primary Explore">Explore</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Images Section -->
-    <div class="images">
-        <h2>Explore our Collection</h2>
-        <div class="images__container">
-            <div class="images__card">
-                <h2>CryptoApes</h2>
-                <p>Ape #0001</p>
+    <!-- collections Section -->
+    <section class="collections">
+        <h2>Collections</h2>
+        <button class="add_your_collection"><a href="">Add yours</a></button>
+        <div class="collections__items">
+            <div class="card collection" style="width: 18rem;">
+                <img src="./images/monkey-2.jpg" class="card-img-top" alt="NFT collection">
+                <div class="card-body">
+                    <div class="collection_info">
+                        <div class="collection_name">
+                            <h5 class="card-title collection-name">Hotgamme</h5>
+                        </div>
+                        <div class="collection_author">
+                            <p class="card-text "><span style="font-weight:600;">artist name : </span>ABDELALI</p>
+                        </div>
+                        <div class="collection_items_count">
+                            <p class="card-text "><span style="font-weight:600;">Items :  </span><span style="color: green;">23 NFT</span> </p>
+                        </div>
+                        <div class="collection_price">
+                            <p class="card-text "><span style="font-weight:bold;">Total Price : </span><span style="color: green;">87ETH</span></p>
+                        </div>
+                    </div>
+                  <a href="#" class="btn btn-primary Explore">Explore</a>
+                </div>
             </div>
-            <div class="images__card">
-                <h2>CryptoApes</h2>
-                <p>Ape #0002</p>
+            <div class="card collection" style="width: 18rem;">
+                <img src="./images/monkey-2.jpg" class="card-img-top" alt="NFT collection">
+                <div class="card-body">
+                    <div class="collection_info">
+                        <div class="collection_name">
+                            <h5 class="card-title collection-name">Hotgamme</h5>
+                        </div>
+                        <div class="collection_author">
+                            <p class="card-text "><span style="font-weight:600;">artist name : </span>ABDELALI</p>
+                        </div>
+                        <div class="collection_items_count">
+                            <p class="card-text "><span style="font-weight:600;">Items :  </span><span style="color: green;">23 NFT</span> </p>
+                        </div>
+                        <div class="collection_price">
+                            <p class="card-text "><span style="font-weight:bold;">Total Price : </span><span style="color: green;">87ETH</span></p>
+                        </div>
+                    </div>
+                  <a href="#" class="btn btn-primary Explore">Explore</a>
+                </div>
             </div>
-            <div class="images__card">
-                <h2>CryptoApes</h2>
-                <p>Ape #0003</p>
+            <div class="card collection" style="width: 18rem;">
+                <img src="./images/monkey-2.jpg" class="card-img-top" alt="NFT collection">
+                <div class="card-body">
+                    <div class="collection_info">
+                        <div class="collection_name">
+                            <h5 class="card-title collection-name">Hotgamme</h5>
+                        </div>
+                        <div class="collection_author">
+                            <p class="card-text "><span style="font-weight:600;">artist name : </span>ABDELALI</p>
+                        </div>
+                        <div class="collection_items_count">
+                            <p class="card-text "><span style="font-weight:600;">Items :  </span><span style="color: green;">23 NFT</span> </p>
+                        </div>
+                        <div class="collection_price">
+                            <p class="card-text "><span style="font-weight:bold;">Total Price : </span><span style="color: green;">87ETH</span></p>
+                        </div>
+                    </div>
+                  <a href="#" class="btn btn-primary Explore">Explore</a>
+                </div>
             </div>
-            <div class="images__card">
-                <h2>CryptoCats</h2>
-                <p>Ape #0024</p>
+            <div class="card collection" style="width: 18rem;">
+                <img src="./images/monkey-2.jpg" class="card-img-top" alt="NFT collection">
+                <div class="card-body">
+                    <div class="collection_info">
+                        <div class="collection_name">
+                            <h5 class="card-title collection-name">Hotgamme</h5>
+                        </div>
+                        <div class="collection_author">
+                            <p class="card-text "><span style="font-weight:600;">artist name : </span>ABDELALI</p>
+                        </div>
+                        <div class="collection_items_count">
+                            <p class="card-text "><span style="font-weight:600;">Items :  </span><span style="color: green;">23 NFT</span> </p>
+                        </div>
+                        <div class="collection_price">
+                            <p class="card-text "><span style="font-weight:bold;">Total Price : </span><span style="color: green;">87ETH</span></p>
+                        </div>
+                    </div>
+                  <a href="#" class="btn btn-primary Explore">Explore</a>
+                </div>
             </div>
-            <div class="images__card">
-                <h2>CryptoCats</h2>
-                <p>Ape #0169</p>
+            <div class="card collection" style="width: 18rem;">
+                <img src="./images/monkey-2.jpg" class="card-img-top" alt="NFT collection">
+                <div class="card-body">
+                    <div class="collection_info">
+                        <div class="collection_name">
+                            <h5 class="card-title collection-name">Hotgamme</h5>
+                        </div>
+                        <div class="collection_author">
+                            <p class="card-text "><span style="font-weight:600;">artist name : </span>ABDELALI</p>
+                        </div>
+                        <div class="collection_items_count">
+                            <p class="card-text "><span style="font-weight:600;">Items :  </span><span style="color: green;">23 NFT</span> </p>
+                        </div>
+                        <div class="collection_price">
+                            <p class="card-text "><span style="font-weight:bold;">Total Price : </span><span style="color: green;">87ETH</span></p>
+                        </div>
+                    </div>
+                  <a href="#" class="btn btn-primary Explore">Explore</a>
+                </div>
             </div>
-            <div class="images__card">
-                <h2>CryptoApes</h2>
-                <p>Ape #7208</p>
+            <div class="card collection" style="width: 18rem;">
+                <img src="./images/monkey-2.jpg" class="card-img-top" alt="NFT collection">
+                <div class="card-body">
+                    <div class="collection_info">
+                        <div class="collection_name">
+                            <h5 class="card-title collection-name">Hotgamme</h5>
+                        </div>
+                        <div class="collection_author">
+                            <p class="card-text "><span style="font-weight:600;">artist name : </span>ABDELALI</p>
+                        </div>
+                        <div class="collection_items_count">
+                            <p class="card-text "><span style="font-weight:600;">Items :  </span><span style="color: green;">23 NFT</span> </p>
+                        </div>
+                        <div class="collection_price">
+                            <p class="card-text "><span style="font-weight:bold;">Total Price : </span><span style="color: green;">87ETH</span></p>
+                        </div>
+                    </div>
+                  <a href="#" class="btn btn-primary Explore">Explore</a>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    
 
     <!-- Footer Section -->
     <div class="footer__container">
