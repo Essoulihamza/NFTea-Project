@@ -548,3 +548,11 @@
     left: 30px;
     font-size: 0.8rem;
 }
+
+
+.signin {
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 30px;
+}
