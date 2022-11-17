@@ -289,7 +289,6 @@
 
     .main__content {
         text-align: center;
-        margin-bottom: 4rem;
     }
 
     .main-content h1 {
@@ -418,7 +417,6 @@
     background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%),
     url('/images/monkey-4.jpg');
     background-size: 100% 100%;
-    background-repeat: no-repeat;
     position: relative;
     color: #fff;
 }
@@ -437,10 +435,10 @@
 }
 
 .images__card p {
- position: absolute;
- top: 380px;
- left: 30px;
- font-size: 0.8rem;
+    position: absolute;
+    top: 380px;
+    left: 30px;
+    font-size: 0.8rem;
 }
 
 .images__card:hover {
@@ -507,4 +505,46 @@
 
 .website__rights {
     color: #fff;
+}
+
+
+/* _________________________collection page__________________________________ */
+.statistic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.statistic .expensive {
+    border-radius: 20px;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%),
+    url('/images/monkey-4.jpg');
+    background-size: 100% 100%;
+    position: relative;
+    color: #fff;
+    width: 280px;
+    height: 320px;
+}
+.statistic .cheap {
+    border-radius: 20px;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(17,17,17,0.6) 100%),
+    url('/images/monkey-3.jpg');
+    background-size: 100% 100%;
+    position: relative;
+    color: #fff;
+    width: 280px;
+    height: 320px;
+}
+.statistic .cheap h2,
+.statistic .expensive h2 {
+    position: absolute;
+    top: 350px;
+    left: 30px;
+    font-size: 1.2rem;
+}
+.statistic .cheap p,
+.statistic .expensive p {
+    position: absolute;
+    top: 380px;
+    left: 30px;
+    font-size: 0.8rem;
 }
