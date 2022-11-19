@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
-    <title>NFTea Home</title>
+    <title>NFTea Sign in</title>
 </head>
 <body>
     <!-- HEADER -->
@@ -13,12 +13,12 @@
         <a id="logo" href="index.html">NFT<span style="color: #7C24D5;">ea</span></a>
         <nav class="nav__bar">
             <ul>
-                <li><a href="index.html" style="color: #7C24D4;">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="collections.html">Collections</a></li>
                 <li><a href="NFT.html">NFTs</a></li>
             </ul>
             <div class="sign_in__button">
-                <button><a href="sign-in.html">Sign in</a></button>
+                <button style="background: white;"><a href="sign-in.html" style="color: #7C24D5;">Sign in</a></button>
             </div>
         </nav>
         <div class="burger__menu">
@@ -36,9 +36,18 @@
                 <button><a href="">View yours</a></button>
             </div>
         </div>
-        <div class="hook__img__part">
-            <img src="./images/monkey-2.jpg" alt="hook image">
-        </div>
+        <form action="" class="sign__in__form">
+            <div class="user__name__container">
+                <input type="text" name="user__name" id="user__name" placeholder="User name">
+                <p>we will creat an account for you if you dont have one</p>
+            </div>
+            <div class="password__container">
+                <input type="password" name="password" id="password" placeholder="password">
+            </div>
+            <div class="submit__container">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
     </section>
     <!-- FOOTER -->
     <footer>

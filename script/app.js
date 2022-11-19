@@ -1,8 +1,10 @@
-const menu = document.querySelector('#mobile-menu');
-const menuLinks = document.querySelector('.navbar__menu');
-
-
-menu.addEventListener('click', function() {
-    menu.classList.toggle('is-active')
-    menuLinks.classList.toggle('active')
-})
+let burgerMenu = document.getElementsByClassName("burger__menu")[0];
+let navBar = document.getElementsByClassName("nav__bar")[0];
+burgerMenu.addEventListener('click', function() {
+    burgerMenu.classList.toggle('is-active');
+    navBar.classList.toggle('is-active')
+});
+window.onscroll = () => {
+	navBar.classList.remove('is-active');
+    burgerMenu.classList.remove('is-active');
+}
