@@ -11,7 +11,7 @@
     font-family: Arial, Helvetica, sans-serif;
     outline: none;
     border: none;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 :root {
     --primary__color: white;
