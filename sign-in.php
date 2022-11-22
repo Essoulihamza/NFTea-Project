@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,18 +8,19 @@
     <link rel="stylesheet" href="./style/style.css">
     <title>NFTea Sign in</title>
 </head>
+
 <body>
     <!-- HEADER -->
     <header>
-        <a id="logo" href="index.html">NFT<span style="color: #7C24D5;">ea</span></a>
+        <a id="logo" href="index.php">NFT<span style="color: #7C24D5;">ea</span></a>
         <nav class="nav__bar">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="collections.html">Collections</a></li>
-                <li><a href="NFT.html">NFTs</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="collections.php">Collections</a></li>
+                <li><a href="NFT.php">NFTs</a></li>
             </ul>
             <div class="sign_in__button">
-                <button style="background: white;"><a href="sign-in.html" style="color: #7C24D5;">Sign in</a></button>
+                <button style="background: white;"><a href="sign-in.php" style="color: #7C24D5;">Sign in</a></button>
             </div>
         </nav>
         <div class="burger__menu">
@@ -33,7 +35,12 @@
             <h1>Welcome to our <span style="color: #7C24D5;">NFT</span> plateform</h1>
             <p>We are happy to host your art</p>
         </div>
-        <form action="./user/home.html" class="sign__in__form" method="post">
+        <form action="./php/connection.php" class="sign__in__form" method="post">
+            <?php if (isset($_GET['error'])) { ?>
+            <p style="color: red;">
+                <?php echo $_GET['error']; ?>
+            </p>
+            <?php } ?>
             <div class="user__name__container">
                 <input type="text" name="user__name" id="user__name" placeholder="User name">
                 <p>we will creat an account for you if you dont have one</p>
@@ -59,4 +66,5 @@
     </footer>
     <script src="./script/app.js"></script>
 </body>
+
 </html>

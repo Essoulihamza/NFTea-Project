@@ -134,12 +134,13 @@ header .burger__menu .burger__bar {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     padding: 50px 0;
-    height: 80%;
+    height: calc(100vh - 80px);
 }
 .hook__text__part {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
 }
 .hook__text__part h1 {
     color: var(--primary__color);
