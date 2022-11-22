@@ -134,7 +134,7 @@ header .burger__menu .burger__bar {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     padding: 50px 0;
-    height: calc(100vh - 80px);
+    height: calc(100vh);
 }
 .hook__text__part {
     display: flex;

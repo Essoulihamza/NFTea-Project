@@ -13,10 +13,10 @@ if (isset($_POST['collection__name'])) {
         exit();
     }
     else {
-        $sql = "INSERT INTO `nft__collection`(`collection__name`, `collection__description`, `collection__IMG`, `artist__ID`) 
+        $sql = "INSERT INTO nft__collection(collection__name, collection__description, collection__IMG, artist__ID) 
                 VALUES ('$collection__name', '$collection__description', '$filename', '$collection__artist')";
         $insert = mysqli_query($connection, $sql);
-        header("Location: add-collection.php");
+        header("Location: add-collection.php?message=Collection added");
         exit();
     }
 
