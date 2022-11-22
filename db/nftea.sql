@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2022 at 05:54 PM
+-- Generation Time: Nov 22, 2022 at 04:58 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -36,6 +36,15 @@ CREATE TABLE `nft` (
   `Collection__ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `nft`
+--
+
+INSERT INTO `nft` (`ID`, `NFT__name`, `price`, `NFT__description`, `NFT__IMG`, `Collection__ID`) VALUES
+(1, 'faergeagaerg', 200, 'eghtzeathehaeh', 'monkey-4.jpg', NULL),
+(2, 'zfergzregzerg', 1213, 'zeafzergtzetar', 'monkey.jpg', 22),
+(3, 'verveqrvqe', 1234, 'zefgaergaerh', 'cat-2.jpg', 23);
+
 -- --------------------------------------------------------
 
 --
@@ -45,8 +54,19 @@ CREATE TABLE `nft` (
 CREATE TABLE `nft__collection` (
   `ID` int(11) NOT NULL,
   `collection__name` varchar(255) NOT NULL,
+  `Collection__description` text NOT NULL,
+  `collection__img` text NOT NULL,
   `artist__ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `nft__collection`
+--
+
+INSERT INTO `nft__collection` (`ID`, `collection__name`, `Collection__description`, `collection__img`, `artist__ID`) VALUES
+(22, 'hey', 'zgtgzrhtzr', 'monkey-4.jpg', 8),
+(23, 'me', 'aergzergzeg', 'cat-2.jpg', 8),
+(24, 'ana', 'greaghaerh', 'monkey-2.jpg', 8);
 
 -- --------------------------------------------------------
 
@@ -59,6 +79,22 @@ CREATE TABLE `user` (
   `user_name` varchar(50) NOT NULL,
   `user__password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`ID`, `user_name`, `user__password`) VALUES
+(8, 'hamza', 'hamza2002'),
+(9, 'hasna', 'hasna2000'),
+(11, 'haaamza', 'hamza2002'),
+(12, 'cqscs', 'sqccqercv'),
+(14, 'youcode', 'youcode2018'),
+(15, 'youcode1', 'hamza'),
+(16, 'account', 'account'),
+(17, 'abdelrahmane', 'codecode'),
+(18, 'tobana', 'tobana'),
+(19, 'kamal', 'kamal');
 
 --
 -- Indexes for dumped tables
@@ -96,19 +132,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `nft`
 --
 ALTER TABLE `nft`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `nft__collection`
 --
 ALTER TABLE `nft__collection`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
