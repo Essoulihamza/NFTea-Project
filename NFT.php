@@ -38,6 +38,28 @@
                 <button><a href="./sign-in.php">View yours</a></button>
             </div>
         </div>
+        <div class="nft_top_down">
+            <div class="nft_top">
+                <p>Top</p>
+                <div class="nft__card">
+                    <div class="nft__info">
+                        <h3 class="nft__name">Hot gamme</h3>
+                        <p class="artist__name">abdelali</p>
+                        <p class="nft__price">2.81 ETH</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nft_down">
+                <p>down</p>
+                <div class="nft__card">
+                    <div class="nft__info">
+                        <h3 class="nft__name">Hot gamme</h3>
+                        <p class="artist__name">abdelali</p>
+                        <p class="nft__price">2.81 ETH</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- NFT SECTION -->
     <section>

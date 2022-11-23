@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
-    <title>NFTea Home</title>
+    <title>Document</title>
 </head>
+<style>
+    .hook__statistics__part {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 5vh;
+    }
+    .nft__statistics,
+    .collection__statistics {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        height: 25vh;
+        width: 70%;
+        min-width: 300px;
+        border-radius: 8px;
+        box-shadow: white 0px 0px 10px 2px;
+        font-size: 3em;
+    }
+    .hook__statistics__part p {
+        color: #7C24D4;
+    }
+    
 
+</style>
 <body>
-    <!-- HEADER -->
     <header>
         <a id="logo" href="index.php">NFT<span style="color: #7C24D5;">ea</span></a>
         <nav class="nav__bar">
@@ -40,8 +65,14 @@
         </div>
         <div class="hook__statistics__part">
             <div class="nft__statistics">
-                <span class="nft__count">239</span>
-                <p>NFT</p>
+                <p>TOP</p>
+                <div class="nft__card">
+                    <div class="nft__info">
+                        <h3 class="nft__name">Hot gamme</h3>
+                        <p class="artist__name">abdelali</p>
+                        <p class="nft__price">2.81 ETH</p>
+                    </div>
+                </div>
             </div>
             <div class="collection__statistics">
                 <span class="collection__count">56</span>
@@ -60,7 +91,5 @@
             </div>
         </div>
     </footer>
-    <script src="./script/app.js"></script>
 </body>
-
 </html>
