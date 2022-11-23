@@ -7,34 +7,6 @@
     <link rel="stylesheet" href="./style/style.css">
     <title>Document</title>
 </head>
-<style>
-    .hook__statistics__part {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        row-gap: 5vh;
-    }
-    .nft__statistics,
-    .collection__statistics {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        color: white;
-        height: 25vh;
-        width: 70%;
-        min-width: 300px;
-        border-radius: 8px;
-        box-shadow: white 0px 0px 10px 2px;
-        font-size: 3em;
-    }
-    .hook__statistics__part p {
-        color: #7C24D4;
-    }
-    
-
-</style>
 <body>
     <header>
         <a id="logo" href="index.php">NFT<span style="color: #7C24D5;">ea</span></a>
@@ -55,28 +27,39 @@
         </div>
     </header>
     <!-- HERO SECTION -->
-    <section class="hero__section">
-        <div class="hook__text__part">
-            <h1>Welcome to our <span style="color: #7C24D5;">NFT</span> plateform</h1>
-            <p>We are happy to host your art</p>
-            <div class="hook__btn__container">
-                <button><a href="./NFT.php">Explore</a></button>
-            </div>
+    <section class="collections">
+        <h2>All Collections</h2>
+        <div class="call__to__action">
+            <button class="add_yours"><a href="./sign-in.php">Add yours</a></button>
         </div>
-        <div class="hook__statistics__part">
-            <div class="nft__statistics">
-                <p>TOP</p>
-                <div class="nft__card">
-                    <div class="nft__info">
-                        <h3 class="nft__name">Hot gamme</h3>
-                        <p class="artist__name">abdelali</p>
-                        <p class="nft__price">2.81 ETH</p>
+        <div class="collections__items">
+            <div class="collection__card">
+                <div class="collection__img">
+                    <!-- collection image -->
+                </div>
+                <div class="collection__info">
+                    <div class="informations">
+                        <div class="collection__name__and__artist">
+                            <h3 class="collection__name">Hot gamme</h3>
+                            <p class="artist__name">abdelali</p>
+                        </div>
+
+                        <div class="nfts__and__price">
+                            <span>12 NFT</span>
+                            <span>54 ETH</span>
+                        </div>
+                        <div class="collection__description">
+                            <p>Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit. Architecto non dignissimos accusantium n
+                                am delectus aut fuga laudantium temporibus asperiores ex?
+                            </p>
+                        </div>
+                    </div>
+                    <div class="collection__explore">
+                        <button class="collection__explore__btn"><a href="">Edit</a></button>
+                        <button class="collection__explore__btn"><a href="">Delete</a></button>
                     </div>
                 </div>
-            </div>
-            <div class="collection__statistics">
-                <span class="collection__count">56</span>
-                <p>Collection</p>
             </div>
         </div>
     </section>

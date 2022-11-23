@@ -412,7 +412,8 @@ header .burger__menu .burger__bar {
 .collection__explore {
     margin-top: 20px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-evenly;
+    row-gap: 2vw;
 }
 
 .collection__explore__btn {
@@ -440,9 +441,10 @@ header .burger__menu .burger__bar {
         width: 100%;
         border-radius: 7px 8px 0 0px;
     }
-
     .collection__explore {
-        justify-content: center;
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-evenly;
     }
 }
 

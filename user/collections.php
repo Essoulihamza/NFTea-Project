@@ -50,7 +50,7 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
             <button class="add_yours"><a href="./add-collection.php">Add yours</a></button>
         </div>
         <div class="collections__items">
-            <div class="collection__card">
+        <div class="collection__card">
                 <div class="collection__img">
                     <!-- collection image -->
                 </div>
@@ -72,92 +72,7 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
                             </p>
                         </div>
                     </div>
-                    <div class="collection__explore">
-                        <button class="collection__explore__btn"><a href="">Explore</a></button>
-                    </div>
                 </div>
-            </div>
-            <div class="collection__card">
-                <div class="collection__img">
-                    <!-- collection image -->
-                </div>
-                <div class="collection__info">
-                    <div class="informations">
-                        <div class="collection__name__and__artist">
-                            <h3 class="collection__name">Hot gamme</h3>
-                            <p class="artist__name">abdelali</p>
-                        </div>
-
-                        <div class="nfts__and__price">
-                            <span>12 NFT</span>
-                            <span>54 ETH</span>
-                        </div>
-                        <div class="collection__description">
-                            <p>Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Architecto non dignissimos accusantium n
-                                am delectus aut fuga laudantium temporibus asperiores ex?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="collection__explore">
-                        <button class="collection__explore__btn"><a href="">Explore</a></button>
-                    </div>
-                </div>
-            </div>
-            <div class="collection__card">
-                <div class="collection__img">
-                    <!-- collection image -->
-                </div>
-                <div class="collection__info">
-                    <div class="informations">
-                        <div class="collection__name__and__artist">
-                            <h3 class="collection__name">Hot gamme</h3>
-                            <p class="artist__name">abdelali</p>
-                        </div>
-
-                        <div class="nfts__and__price">
-                            <span>12 NFT</span>
-                            <span>54 ETH</span>
-                        </div>
-                        <div class="collection__description">
-                            <p>Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Architecto non dignissimos accusantium n
-                                am delectus aut fuga laudantium temporibus asperiores ex?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="collection__explore">
-                        <button class="collection__explore__btn"><a href="">Explore</a></button>
-                    </div>
-                </div>
-            </div>
-            <div class="collection__card">
-                <div class="collection__img">
-                    <!-- collection image -->
-                </div>
-                <div class="collection__info">
-                    <div class="informations">
-                        <div class="collection__name__and__artist">
-                            <h3 class="collection__name">Hot gamme</h3>
-                            <p class="artist__name">abdelali</p>
-                        </div>
-
-                        <div class="nfts__and__price">
-                            <span>12 NFT</span>
-                            <span>54 ETH</span>
-                        </div>
-                        <div class="collection__description">
-                            <p>Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Architecto non dignissimos accusantium n
-                                am delectus aut fuga laudantium temporibus asperiores ex?
-                            </p>
-                        </div>
-                    </div>
-                    <div class="collection__explore">
-                        <button class="collection__explore__btn"><a href="">Explore</a></button>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     <!-- FOOTER -->
