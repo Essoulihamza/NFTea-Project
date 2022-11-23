@@ -6,7 +6,7 @@ if (isset($_POST['nft__name'])) {
     $nft__name = $_POST['nft__name'];
     $nft__price = $_POST['nft__price'];
     $nft__description = $_POST['nft__description'];
-    $nft__collection = $_POST['collection']; 
+    $nft__collection__name = $_POST['nft__collection__name'];
     $filename = $_FILES["nft__img"]["name"];
     $tempname = $_FILES["nft__img"]["tmp_name"];
     $folder = "../db__img/" . $filename;
@@ -25,26 +25,19 @@ if (isset($_POST['nft__name'])) {
     } else {
         $qry = "SELECT ID, collection__name, artist__ID FROM nft__collection";
         $result = mysqli_query($connection, $qry);
-        $row = $result->fetch_assoc();
-        while($row = $result->fetch_assoc()) {
-            if($row['collection__name'] == $nft__collection && $row['artist__ID'] == $artist__ID) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            if ($row['collection__name'] == $nft__collection__name && $row['artist__ID'] == $artist__ID) {
                 $collection_ID = $row['ID'];
                 $sql_I = "INSERT INTO nft(`NFT__name`, `price`, `NFT__description`, `NFT__IMG`, `collection__ID`) 
                         VALUES ('$nft__name', '$nft__price', '$nft__description', '$filename', '$collection_ID')";
-                if(mysqli_query($connection, $sql_I)) {
-                    header("Location: add-nft.php?error=NFT img already exist!");
+                if (mysqli_query($connection, $sql_I)) {
+                    header("Location: add-nft.php?message=NFT added");
                     exit();
-                } else {
-                    $insert__nft = mysqli_query($connection, $sql_I);
                 }
-                header("Location: add-nft.php");
-                exit();
             }
-            else {
-                header("Location: add-nft.php?error=This collection is not exist, or it is not yours");
-                exit();
-            } 
         }
+        header("Location: add-nft.php?error=This collection is not exist, or it is not yours");
+        exit();
     }
 
 }

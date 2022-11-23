@@ -43,7 +43,6 @@
             <?php } ?>
             <div class="user__name__container">
                 <input type="text" name="user__name" id="user__name" placeholder="User name">
-                <p>we will creat an account for you if you dont have one</p>
             </div>
             <div class="password__container">
                 <input type="password" name="password" id="password" placeholder="password">

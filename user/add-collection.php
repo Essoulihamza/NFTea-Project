@@ -64,12 +64,13 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
     </footer>
     <script src="../script/app.js"></script>
     <?php
-        if(isset($_GET['message'])) { ?>
+    if (isset($_GET['message'])) { ?>
     <script>
-    alert("<?php echo $_GET['message'];?>" );
+        alert("<?php echo $_GET['message']; ?>");
     </script>
+
     <?php
-        }
+    }
     ?>
 </body>
 

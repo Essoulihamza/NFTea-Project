@@ -223,7 +223,6 @@ header .burger__menu .burger__bar {
     justify-content: center;
     align-items: center;
     column-gap: 4vh;
-    flex-wrap: wrap;
     color: white;
     font-size: 1.4em;
 }
@@ -232,8 +231,9 @@ header .burger__menu .burger__bar {
 @media screen and (max-width: 768px) {
     .hero__section {
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 1fr auto;
         row-gap: 2vh;
+        height: auto;
     }
 
     .hook__text__part {
@@ -250,10 +250,12 @@ header .burger__menu .burger__bar {
         font-size: 1.4em;
     }
 
-    .hook__img__part {
-        display: flex;
+    .hook__btn__container {
         justify-content: center;
+        align-items: center;
     }
+
+
 }
 
 @media screen and (max-width: 480px) {
@@ -265,9 +267,9 @@ header .burger__menu .burger__bar {
         font-size: 1.2em;
     }
 
-    .hook__img__part img {
-        width: 300px;
-        height: 260px;
+    .nft_top_down {
+        flex-direction: column;
+        row-gap: 5vh;
     }
 }
 
@@ -455,8 +457,8 @@ header .burger__menu .burger__bar {
 *********************************************************************************************************************************************************/
 /* ________NFT style ________ */
 .nft__section {
-    margin-top: 10vh;
-    margin-bottom: 10vh;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
 }
 
 .nft__section h2 {
@@ -527,24 +529,18 @@ header .burger__menu .burger__bar {
     row-gap: 4vh;
 }
 
-.sign__in__form .user__name__container input {
+.sign__in__form .user__name__container,
+.password__container {
     min-width: 250px;
 }
 
 .sign__in__form .user__name__container input,
 .password__container input {
     max-width: 500px;
-    min-width: 250px;
     width: 100%;
     height: 40px;
     border-radius: 4px;
     padding: 20px;
-}
-
-.sign__in__form .user__name__container p {
-    color: white;
-    opacity: 0.6;
-    font-size: 0.8em;
 }
 
 .sign__in__form .submit__container {

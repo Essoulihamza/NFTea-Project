@@ -1,5 +1,26 @@
 <?php
+include "../php/db__connection.php";
 session_start();
+    $query__max__price = mysqli_query($connection, "SELECT MAX(price) FROM nft;");
+    $query__min__price = mysqli_query($connection, "SELECT MIN(price) FROM nft;");
+    $max_row = mysqli_fetch_assoc($query__max__price);
+    $min_row = mysqli_fetch_assoc($query__min__price);
+    $max = $max_row['MAX(price)'];
+    $min = $min_row['MIN(price)'];
+    $query__max__nft = mysqli_query($connection, "SELECT * FROM nft WHERE price = $max");
+    $query__min__nft = mysqli_query($connection, "SELECT * FROM nft WHERE price = $min");
+    $max__nft__row = mysqli_fetch_assoc($query__max__nft);
+    $min__nft__row = mysqli_fetch_assoc($query__min__nft);
+    $max__collection__ID = $max__nft__row['Collection__ID'];
+    $min__collection__ID = $min__nft__row['Collection__ID'];
+    $collection__qry__max = mysqli_query($connection, "SELECT artist__ID FROM nft__collection WHERE ID = $max__collection__ID");
+    $collection__qry__min = mysqli_query($connection, "SELECT artist__ID FROM nft__collection WHERE ID = $min__collection__ID");
+    $artist__ID__max = mysqli_fetch_column($collection__qry__max);
+    $artist__ID__min = mysqli_fetch_column($collection__qry__min);
+    $query__max__nft = mysqli_query($connection, "SELECT user_name FROM user WHERE ID = $artist__ID__max");
+    $query__min__nft = mysqli_query($connection, "SELECT user_name FROM user WHERE ID = $artist__ID__min");
+    $artist__max__name = mysqli_fetch_column($query__max__nft);
+    $artist__min__name = mysqli_fetch_column($query__min__nft);
 if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
 ?>
 <!DOCTYPE html>
@@ -12,7 +33,14 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
     <link rel="stylesheet" href="../style/style.css">
     <title>NFTea NFT</title>
 </head>
-
+<style>
+    .nft_top .nft__card {
+        background: url('../db_img/<?php echo $max__nft__row['IMG']; ?>');
+    }
+    .nft_down .nft__card {
+        background: url('../db_img/<?php echo $min__nft__row['IMG']; ?>');
+    }
+</style>
 <body>
     <!-- HEADER -->
     <header>
@@ -42,14 +70,26 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
                 <button><a href="">View yours</a></button>
             </div>
         </div>
-    </section>
-    <!-- NFT SECTION -->
-    <section>
-        <div class="statistics">
-            <h2>NFT Statistics</h2>
-            <div class="nft__stitistics">
-                <div class="expensive"></div>
-                <div class="cheap"></div>
+        <div class="nft_top_down">
+            <div class="nft_top">
+                <p>Top</p>
+                <div class="nft__card">
+                    <div class="nft__info">
+                        <h3 class="nft__name"><?php echo $max__nft__row['NFT__name']; ?></h3>
+                        <p class="artist__name"><?php echo $artist__max__name; ?></p>
+                        <p class="nft__price"><?php echo $max__nft__row['price']; ?> ETH</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nft_down">
+                <p>down</p>
+                <div class="nft__card">
+                    <div class="nft__info">
+                        <h3 class="nft__name"><?php echo $min__nft__row['NFT__name']; ?></h3>
+                        <p class="artist__name"><?php echo $artist__min__name; ?></p>
+                        <p class="nft__price"><?php echo $min__nft__row['price']; ?> ETH</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

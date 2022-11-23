@@ -1,3 +1,12 @@
+<?php
+    include "./php/db__connection.php";
+    $nft__count__qry = mysqli_query($connection ,"SELECT COUNT(*) FROM nft;");
+    $collection__count__qry = mysqli_query($connection ,"SELECT COUNT(*) FROM nft__collection;");
+    $nft_row = mysqli_fetch_assoc($nft__count__qry);
+    $collection_row = mysqli_fetch_assoc($collection__count__qry);
+    $collection__count = $collection_row['COUNT(*)'];
+    $nft__count = $nft_row['COUNT(*)'];    
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,11 +49,11 @@
         </div>
         <div class="hook__statistics__part">
             <div class="nft__statistics">
-                <span class="nft__count">239</span>
+                <span class="nft__count"><?php echo $nft__count;?></span>
                 <p>NFT</p>
             </div>
             <div class="collection__statistics">
-                <span class="collection__count">56</span>
+                <span class="collection__count"><?php echo $collection__count;?></span>
                 <p>Collection</p>
             </div>
         </div>

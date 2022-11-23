@@ -1,5 +1,12 @@
 <?php
+include "../php/db__connection.php";
 session_start();
+$nft__count__qry = mysqli_query($connection ,"SELECT COUNT(*) FROM nft;");
+$collection__count__qry = mysqli_query($connection ,"SELECT COUNT(*) FROM nft__collection;");
+$nft_row = mysqli_fetch_assoc($nft__count__qry);
+$collection_row = mysqli_fetch_assoc($collection__count__qry);
+$collection__count = $collection_row['COUNT(*)'];
+$nft__count = $nft_row['COUNT(*)']; 
 if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
 ?>
 <!DOCTYPE html>
@@ -41,8 +48,15 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
                 </span></h1>
             <p>We are happy to host your art</p>
         </div>
-        <div class="hook__img__part">
-            <img src="../images/monkey-2.jpg" alt="hook image">
+        <div class="hook__statistics__part">
+            <div class="nft__statistics">
+                <span class="nft__count"><?php echo $nft__count;?></span>
+                <p>NFT</p>
+            </div>
+            <div class="collection__statistics">
+                <span class="collection__count"><?php echo $collection__count;?></span>
+                <p>Collection</p>
+            </div>
         </div>
     </section>
     <!-- FOOTER -->

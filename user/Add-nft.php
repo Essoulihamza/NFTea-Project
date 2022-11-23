@@ -1,6 +1,10 @@
 <?php
+include "../php/db__connection.php";
 session_start();
 if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
+    $artist__id = $_SESSION['ID'];
+    $qry = "SELECT * FROM nft__collection WHERE artist__ID = $artist__id";
+    $result = mysqli_query($connection, $qry);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +49,13 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
             <?php } ?>
             <input type="text" placeholder="Enter the NFT name *" name="nft__name">
             <input type="text" placeholder="Enter NFT price (ETH) *" name="nft__price">
-            <input type="text" name="collection" placeholder="Enter the NFT collection *">
+            <select name="nft__collection__name" id="collection__select">
+                <option value="Select the NFT collection" hidden>Select the NFT collection</option>
+                <?php
+                    while($row = mysqli_fetch_assoc($result)) { ?>
+                <option value="<?php echo $row['collection__name']; ?>"><?php echo $row['collection__name']; ?></option>
+                <?php } ?>
+            </select>
             <textarea name="nft__description" id="description"
                 placeholder="Enter the collection description"></textarea>
             <div class="button" onclick="document.getElementById('nft__img').click()">Upload Image</div>
@@ -65,6 +75,15 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
         </div>
     </footer>
     <script src="../script/app.js"></script>
+    <?php
+    if (isset($_GET['message'])) { ?>
+    <script>
+        alert("<?php echo $_GET['message']; ?>");
+    </script>
+
+    <?php
+    }
+    ?>
 </body>
 
 </html>

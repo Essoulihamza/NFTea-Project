@@ -39,16 +39,6 @@
             </div>
         </div>
     </section>
-    <!-- COLLECTIONS STATISCTICS SRCTION -->
-    <section>
-        <div class="statistics">
-            <h2>Collections Statistics</h2>
-            <div class="collections__stitistics">
-                <div class="expensive"></div>
-                <div class="cheap"></div>
-            </div>
-        </div>
-    </section>
     <!-- COLLECTIONS SECTION -->
     <section class="collections">
         <h2>All Collections</h2>
@@ -84,9 +74,6 @@
                 </div>
             </div>
             <div class="collection__card">
-                <div class="collection__img">
-                    <!-- collection image -->
-                </div>
                 <div class="collection__info">
                     <div class="informations">
                         <div class="collection__name__and__artist">
