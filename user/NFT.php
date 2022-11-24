@@ -21,6 +21,7 @@ session_start();
     $query__min__nft = mysqli_query($connection, "SELECT user_name FROM user WHERE ID = $artist__ID__min");
     $artist__max__name = mysqli_fetch_column($query__max__nft);
     $artist__min__name = mysqli_fetch_column($query__min__nft);
+    $result = mysqli_query($connection, "SELECT * FROM nft");
 if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
 ?>
 <!DOCTYPE html>
@@ -33,14 +34,6 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
     <link rel="stylesheet" href="../style/style.css">
     <title>NFTea NFT</title>
 </head>
-<style>
-    .nft_top .nft__card {
-        background: url('../db_img/<?php echo $max__nft__row['IMG']; ?>');
-    }
-    .nft_down .nft__card {
-        background: url('../db_img/<?php echo $min__nft__row['IMG']; ?>');
-    }
-</style>
 <body>
     <!-- HEADER -->
     <header>
@@ -67,7 +60,7 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
             <h1>Enjoy the art of <span style="color: #7C24D5;">NFTs</span></h1>
             <p>We are happy to host your art</p>
             <div class="hook__btn__container">
-                <button><a href="">View yours</a></button>
+                <button><a href="your_nft.php">View yours</a></button>
             </div>
         </div>
         <div class="nft_top_down">
@@ -100,28 +93,22 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
             <button class="add_yours"><a href="./add-nft.php">Add yours</a></button>
         </div>
         <div class="nft__items">
-            <div class="nft__card">
+            <?php while( $row = mysqli_fetch_assoc($result)) { 
+                $c_id = $row['Collection__ID'];
+                $user__sql = "SELECT artist__ID FROM nft__collection WHERE ID = $c_id";
+                $re = mysqli_query($connection, $user__sql);
+                $artist_id = mysqli_fetch_column($re);
+                $user_name_sql = mysqli_query($connection, "SELECT user_name FROM user WHERE ID = $artist_id");
+                $artist_name =  mysqli_fetch_column($user_name_sql); 
+                $img = $row['NFT__IMG']; ?>
+                <div class="nft__card" style="background-image: url('../<?php echo $img; ?>') ;">
                 <div class="nft__info">
-                    <h3 class="nft__name">Hot gamme</h3>
-                    <p class="artist__name">abdelali</p>
-                    <p class="nft__price"> <span>2.81</span>ETH</p>
+                    <h3 class="nft__name"><?php echo $row['NFT__name']; ?></h3>
+                    <p class="artist__name"><?php echo $artist_name; ?></p>
+                    <p class="nft__price"> <span><?php echo $row['price']; ?></span>ETH</p>
                 </div>
             </div>
-            <div class="nft__card">
-                <div class="nft__info">
-                    <h3 class="nft__name">Hot gamme</h3>
-                    <p class="artist__name">abdelali</p>
-                    <p class="nft__price">2.81 ETH</p>
-                </div>
-            </div>
-            <div class="nft__card">
-                <div class="nft__info">
-                    <h3 class="nft__name">Hot gamme</h3>
-                    <p class="artist__name">abdelali</p>
-                    <p class="nft__price">2.81 ETH</p>
-                </div>
-            </div>
-
+            <?php } ?>
         </div>
     </section>
     <!-- FOOTER -->

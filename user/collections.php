@@ -1,5 +1,7 @@
 <?php
+include "../php/db__connection.php";
 session_start();
+$result = mysqli_query($connection, "SELECT * FROM nft__collection");
 if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
 ?>
 <!DOCTYPE html>
@@ -39,7 +41,7 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
             <h1>Enjoy the art of <span style="color: #7C24D5;">NFTs</span> collections</h1>
             <p>We are happy to host your art</p>
             <div class="hook__btn__container">
-                <button><a href="">View yours</a></button>
+                <button><a href="./your_collections.php">View yours</a></button>
             </div>
         </div>
     </section>
@@ -50,29 +52,37 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
             <button class="add_yours"><a href="./add-collection.php">Add yours</a></button>
         </div>
         <div class="collections__items">
-        <div class="collection__card">
-                <div class="collection__img">
+        <?php
+            while ($row = mysqli_fetch_assoc($result)) {
+                $img = $row['collection__img'];
+                $artist_id = $row['artist__ID'];
+                $user__sql = "SELECT user_name FROM user WHERE ID = $artist_id";
+                $re = mysqli_query($connection, $user__sql);
+                $artist_name = mysqli_fetch_column($re);
+            ?>
+            <div class="collection__card">
+                <div class="collection__img" style="background-image: url('../<?php echo $img; ?>');">
                     <!-- collection image -->
                 </div>
                 <div class="collection__info">
                     <div class="informations">
                         <div class="collection__name__and__artist">
-                            <h3 class="collection__name">Hot gamme</h3>
-                            <p class="artist__name">abdelali</p>
-                        </div>
-
-                        <div class="nfts__and__price">
-                            <span>12 NFT</span>
-                            <span>54 ETH</span>
+                            <h3 class="collection__name">
+                                <?php echo $row['collection__name']; ?>
+                            </h3>
+                            <p class="artist__name">
+                                <?php echo $artist_name; ?>
+                            </p>
                         </div>
                         <div class="collection__description">
-                            <p>Lorem ipsum, dolor sit amet consectetur
-                                adipisicing elit. Architecto non dignissimos accusantium n
-                                am delectus aut fuga laudantium temporibus asperiores ex?
+                            <p>
+                                <?php echo $row['Collection__description']; ?>
                             </p>
                         </div>
                     </div>
                 </div>
+            </div>
+            <?php } ?>
         </div>
     </section>
     <!-- FOOTER -->

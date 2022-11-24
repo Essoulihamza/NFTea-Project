@@ -1,10 +1,16 @@
 <?php
 include "../php/db__connection.php";
 session_start();
-if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
-    $artist__id = $_SESSION['ID'];
-    $qry = "SELECT * FROM nft__collection WHERE artist__ID = $artist__id";
-    $result = mysqli_query($connection, $qry);
+if (isset($_GET['id'])) {
+    $collection__id = $_GET['id'];
+    $sql = "SELECT * FROM nft__collection WHERE ID = $collection__id";
+    $result = mysqli_query($connection, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $collection__name = $row['collection__name'];
+    $collection__description = $row['Collection__description'];
+    $collection__IMG = $row['collection__img'];
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +21,7 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style/style.css">
     <link rel="stylesheet" href="../style/forms.css">
-    <title>NFTea Home</title>
+    <title>Edit collection</title>
 </head>
 
 <body>
@@ -24,12 +30,12 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
         <a id="logo" href="home.php">NFT<span style="color: #7C24D5;">ea</span></a>
         <nav class="nav__bar">
             <ul>
-                <li><a href="home.php">Home</a></li>
-                <li><a href="collections.php">Collections</a></li>
-                <li><a href="NFT.php">NFTs</a></li>
+                <li><a href="../user/home.php">Home</a></li>
+                <li><a href="../user/collections.php" style="color: #7C24D5;" >Collections</a></li>
+                <li><a href="../user/NFT.php">NFTs</a></li>
             </ul>
             <div class="sign_in__button">
-                <button><a href="./log-out.php">Log out</a></button>
+                <button><a href="../user/log-out.php">Log out</a></button>
             </div>
         </nav>
         <div class="burger__menu">
@@ -40,25 +46,22 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
     </header>
     <!-- form -->
     <section class="form_">
-        <h1>Add NFT</h1>
-        <form action="nft__added.php" class="nft_form" method="POST" enctype="multipart/form-data">
+        <h1>Edit collection</h1>
+        <form action="update.php?id=<?php echo $collection__id; ?>" id="collection_form" method="POST"
+            enctype="multipart/form-data">
             <?php if (isset($_GET['error'])) { ?>
             <p style="color: red;">
                 <?php echo $_GET['error']; ?>
             </p>
             <?php } ?>
-            <input type="text" placeholder="Enter the NFT name *" name="nft__name">
-            <input type="text" placeholder="Enter NFT price (ETH) *" name="nft__price">
-            <select name="nft__collection__name" id="collection__select">
-                <option value="Select the NFT collection" hidden>Select the NFT collection</option>
-                <?php
-                    while($row = mysqli_fetch_assoc($result)) { ?>
-                <option value="<?php echo $row['collection__name']; ?>"><?php echo $row['collection__name']; ?></option>
-                <?php } ?>
-            </select>
-            <div class="button" onclick="document.getElementById('nft__img').click()">Upload Image</div>
-            <input type="File" id="nft__img" name="nft__img" style="display: none;">
-            <input type="submit" value="Create" id="submit" name="submit">
+            <input type="text" name="new__collection__name" placeholder="Enter collection name"
+                value="<?php echo $collection__name; ?>">
+            <textarea name="new__collection__description" id="description"
+                placeholder="Enter the collection description"><?php echo $collection__description; ?></textarea>
+            <div class="button" onclick="document.getElementById('collection__img').click()">Upload Image</div>
+            <input type="File" id="collection__img" name="new__collection__img" style="display: none;"
+                value="../db_img/<?php echo $collection__IMG; ?>">
+            <input type="submit" value="Edit" id="submit" name="edit">
         </form>
     </section>
     <!-- FOOTER -->
@@ -85,7 +88,8 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
 </body>
 
 </html>
-<?php } else {
+<?php
+} else {
     header("Location: ../sign-in.php?error=Something goes wrong!");
     exit();
 }

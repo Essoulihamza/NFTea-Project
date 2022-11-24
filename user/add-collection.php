@@ -48,7 +48,7 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
                 placeholder="Enter the collection description"></textarea>
             <div class="button" onclick="document.getElementById('collection__img').click()">Upload Image</div>
             <input type="File" id="collection__img" name="collection__img" style="display: none;">
-            <input type="submit" value="Create" id="submit">
+            <input type="submit" value="Create" id="submit" name="submit">
         </form>
     </section>
     <!-- FOOTER -->
