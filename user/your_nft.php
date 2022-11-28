@@ -1,9 +1,14 @@
 <?php
 include "../php/db__connection.php";
 session_start();
-
-$sql = "SELECT * FROM nft WHERE Collection__ID = '$collection__ID'";
+$artist_id = $_SESSION['ID'];
+$sql = "SELECT ID FROM nft__collection WHERE artist__ID = $artist_id";
 $resault = mysqli_query($connection, $sql);
+$collection_id = mysqli_fetch_column($resault);
+$qry = "SELECT * FROM nft WHERE Collection__ID = $collection_id";
+$res = mysqli_query($connection, $qry);
+
+
 if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
 ?>
 <!DOCTYPE html>
@@ -43,32 +48,20 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
             <button class="add_yours"><a href="./add-nft.php">Add yours</a></button>
         </div>
         <div class="nft__items">
-            <div class="nft__card">
+            <?php while($row = mysqli_fetch_assoc($res)) { $img = $row['NFT__IMG'];?>
+                
+            <div class="nft__card" style="background-image: url('../<?php echo $img; ?>') ;">
                 <div class="nft__info">
-                    <h3 class="nft__name">Hot gamme</h3>
-                    <p class="artist__name">abdelali</p>
-                    <p class="nft__price"> <span>2.81</span>ETH</p>
+                    <h3 class="nft__name"><?php echo $row['NFT__name'] ?></h3>
+                    <p class="artist__name"><?php echo $_SESSION['user_name'] ?></p>
+                    <p class="nft__price"> <span><?php echo $row['price'] ?></span>ETH</p>
                     <button class="collection__explore__btn"><a
-                                href="../crud/nft__edit.php?id=<?php echo $row['Collection__ID'] ?>">Edit</a></button>
+                                href="../crud/nft__edit.php?id=<?php echo $row['ID'] ?>">Edit</a></button>
                         <button class="collection__explore__btn"><a
-                                href="../crud/collection__delete.php?id=<?php echo $row['Collection__ID'] ?>">Delete</a></button>
+                                href="../crud/nft__delete.php?id=<?php echo $row['ID'] ?>">Delete</a></button>
                 </div>
             </div>
-            <div class="nft__card">
-                <div class="nft__info">
-                    <h3 class="nft__name">Hot gamme</h3>
-                    <p class="artist__name">abdelali</p>
-                    <p class="nft__price">2.81 ETH</p>
-                </div>
-            </div>
-            <div class="nft__card">
-                <div class="nft__info">
-                    <h3 class="nft__name">Hot gamme</h3>
-                    <p class="artist__name">abdelali</p>
-                    <p class="nft__price">2.81 ETH</p>
-                </div>
-            </div>
-
+            <?php } ?>
         </div>
     </section>
     <!-- FOOTER -->

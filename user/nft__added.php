@@ -9,6 +9,8 @@ if (isset($_POST['submit'])) {
     $filename = $_FILES["nft__img"]["name"];
     $tempname = $_FILES["nft__img"]["tmp_name"];
     $img = "db_img/".$filename;
+    $qry = "SELECT * FROM nft__collection";
+    $result = mysqli_query($connection, $qry);
     if (empty($nft__name)) {
         header("Location: ./add-nft.php?error=NFT name is required");
         exit();
@@ -19,8 +21,8 @@ if (isset($_POST['submit'])) {
         header("Location: add-nft.php?error=NFT image is required");
         exit();
     } else {
-        $qry = "SELECT ID, collection__name, artist__ID FROM nft__collection";
-        $result = mysqli_query($connection, $qry);
+        
+
         while ($row = mysqli_fetch_assoc($result)) {
             if ($row['collection__name'] == $nft__collection__name && $row['artist__ID'] == $artist__ID) {
                 $collection_ID = $row['ID'];

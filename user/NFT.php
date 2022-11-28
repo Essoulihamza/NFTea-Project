@@ -22,6 +22,9 @@ session_start();
     $artist__max__name = mysqli_fetch_column($query__max__nft);
     $artist__min__name = mysqli_fetch_column($query__min__nft);
     $result = mysqli_query($connection, "SELECT * FROM nft");
+    $min_img = $min__nft__row['NFT__IMG'];
+    $max_img = $max__nft__row['NFT__IMG'];
+
 if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
 ?>
 <!DOCTYPE html>
@@ -66,7 +69,7 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
         <div class="nft_top_down">
             <div class="nft_top">
                 <p>Top</p>
-                <div class="nft__card">
+                <div class="nft__card" style=" background-image: url('../<?php echo $max_img; ?>');">
                     <div class="nft__info">
                         <h3 class="nft__name"><?php echo $max__nft__row['NFT__name']; ?></h3>
                         <p class="artist__name"><?php echo $artist__max__name; ?></p>
@@ -76,7 +79,7 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
             </div>
             <div class="nft_down">
                 <p>down</p>
-                <div class="nft__card">
+                <div class="nft__card" style=" background-image: url('../<?php echo $min_img; ?>');">
                     <div class="nft__info">
                         <h3 class="nft__name"><?php echo $min__nft__row['NFT__name']; ?></h3>
                         <p class="artist__name"><?php echo $artist__min__name; ?></p>

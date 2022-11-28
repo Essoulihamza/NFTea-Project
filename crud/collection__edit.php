@@ -9,8 +9,6 @@ if (isset($_GET['id'])) {
     $collection__name = $row['collection__name'];
     $collection__description = $row['Collection__description'];
     $collection__IMG = $row['collection__img'];
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +57,7 @@ if (isset($_GET['id'])) {
             <textarea name="new__collection__description" id="description"
                 placeholder="Enter the collection description"><?php echo $collection__description; ?></textarea>
             <div class="button" onclick="document.getElementById('collection__img').click()">Upload Image</div>
-            <input type="File" id="collection__img" name="new__collection__img" style="display: none;"
+            <input type="file" id="collection__img" name="new__collection__img" style="display: none;"
                 value="../db_img/<?php echo $collection__IMG; ?>">
             <input type="submit" value="Edit" id="submit" name="edit">
         </form>

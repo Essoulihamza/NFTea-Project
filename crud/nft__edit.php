@@ -1,10 +1,13 @@
 <?php
 include "../php/db__connection.php";
 session_start();
-$collection__ID = $_GET['id'];
-$sql = "SELECT * FROM nft WHERE Collection__ID = $collection__ID";
+$nft_id = $_GET['id'];
+$sql = "SELECT * FROM nft WHERE ID = $nft_id";
 $result = mysqli_query($connection, $sql);
 $row = mysqli_fetch_assoc($result);
+$artist__id = $_SESSION['ID'];
+$qry = "SELECT * FROM nft__collection WHERE artist__ID = $artist__id";
+$result_col = mysqli_query($connection, $qry);
 if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
 ?>
 <!DOCTYPE html>
@@ -48,13 +51,13 @@ if (isset($_SESSION['user_name']) && isset($_SESSION['user__password'])) {
                 <?php echo $_GET['error']; ?>
             </p>
             <?php } ?>
-            <input type="text" placeholder="Enter the NFT name *" name="nft__name" value="<?php echo $row['nft__name']; ?>">
+            <input type="text" placeholder="Enter the NFT name *" name="nft__name" value="<?php echo $row['NFT__name']; ?>">
             <input type="text" placeholder="Enter NFT price (ETH) *" name="nft__price" value="<?php echo $row['price']; ?>">
             <select name="nft__collection__name" id="collection__select" >
-                <option value="Select the NFT collection" hidden>Select the NFT collection</option>
+                <option value="Select the NFT collection" hidden>Select the NFT collection *</option>
                 <?php
-                    while($row = mysqli_fetch_assoc($result)) { ?>
-                <option value="<?php echo $row['collection__name']; ?>"><?php echo $row['collection__name']; ?></option>
+                    while($row_1 = mysqli_fetch_assoc($result_col)) { ?>
+                <option value="<?php echo $row_1['collection__name']; ?>"><?php echo $row_1['collection__name']; ?></option>
                 <?php } ?>
             </select>
             <div class="button" onclick="document.getElementById('nft__img').click()">Upload Image</div>
